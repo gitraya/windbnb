@@ -1,9 +1,6 @@
 :root {
-  --ubuntu-mono: 'Ubuntu Mono', monospace;
-  --poppins: 'Poppins', sans-serif;
+  --mulish: 'Mulish', sans-serif;
   --montserrat: 'Montserrat', sans-serif;
-  --noto-sans-jp: 'Noto Sans JP', sans-serif;
-  --gray-two: #4f4f4f;
 }
 
 * {
