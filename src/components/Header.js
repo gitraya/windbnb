@@ -1,10 +1,18 @@
 const Header = () => {
   return (
     <header>
-      <h1 className="logo-devchallenges ft-poppins ft-600">
-        <span style={{ color: '#f7542e' }}>Dev</span>
-        <span style={{ color: '#090F31' }}>challenges.io</span>
-      </h1>
+      <nav>
+        <div>
+          <img src={process.env.PUBLIC_URL + '/images/logo.svg'} alt="" />
+        </div>
+        <div>
+          <button>Helsinki, Finland</button>
+          <button>Add guests</button>
+          <button>
+            <i class="material-icons-round">search</i>
+          </button>
+        </div>
+      </nav>
     </header>
   );
 };
