@@ -1,4 +1,20 @@
+import { useRef, useEffect } from 'react';
+
 const Card = ({ stayData }) => {
+  const titleRef = useRef();
+  const titleMaxText = () => {
+    let max = parseInt(titleRef.current.offsetWidth / 11);
+    let text = stayData.title;
+    return (titleRef.current.textContent =
+      text && text.length > max
+        ? text.slice(0, max).split(' ').slice(0, -1).join(' ') + '...'
+        : text);
+  };
+
+  useEffect(() => {
+    titleMaxText();
+  });
+
   return (
     <div>
       <div className="images-card">
@@ -19,11 +35,7 @@ const Card = ({ stayData }) => {
         </small>
       </div>
       <div className="title-card">
-        <h3>
-          {window.screen > 540 && stayData.title.length > 36
-            ? `${stayData.title.replace(/^(.{30}[^\s]*).*/, '$1')}...`
-            : stayData.title}
-        </h3>
+        <h3 ref={titleRef}>{}</h3>
       </div>
     </div>
   );

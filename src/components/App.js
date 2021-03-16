@@ -17,7 +17,7 @@ function App() {
     const getStays = async () => {
       const jsonStays = await fetchStays();
       jsonStays.map((stay) => {
-        return (stay.id = Math.floor(Math.random() * 1000) + 1);
+        return (stay.id = Math.floor(Math.random() * 10000) + 1);
       });
       return setStays(jsonStays);
     };
