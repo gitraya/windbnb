@@ -1,19 +1,14 @@
 import { useState, useRef } from 'react';
 
-const SearchForm = ({
-  locationValue,
-  guestsValue,
-  inputClass,
-  showModal,
-  focusInput,
-}) => {
+const SearchForm = ({ locationValue, guestsValue, inputClass, showModal }) => {
   // State of component
   const [state, setstate] = useState({
     locationValue: locationValue,
     guestsValue: guestsValue,
   });
+
   // Ref
-  const inputModalRef = useRef();
+  const inputRef = useRef();
 
   // Function to change value of input
   const onValueChange = (value) => {
@@ -22,11 +17,10 @@ const SearchForm = ({
     });
   };
 
+  // Function to handle showmodal function from parent element
   const handleShowModal = (event) => {
     if (typeof showModal === 'function') {
       showModal(event.target.name);
-      console.log(focusInput());
-      focusInput();
     }
   };
 
@@ -34,7 +28,7 @@ const SearchForm = ({
     <div>
       <form action="">
         <input
-          ref={inputModalRef}
+          ref={inputRef}
           type="text"
           title="location"
           name="location"
@@ -45,7 +39,7 @@ const SearchForm = ({
           className={`${inputClass} location`}
         />
         <input
-          ref={inputModalRef}
+          ref={inputRef}
           type="text"
           title="guests"
           name="guests"

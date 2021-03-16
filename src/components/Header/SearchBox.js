@@ -2,7 +2,7 @@ import SearchForm from './SearchForm';
 import { useState, useRef, useEffect } from 'react';
 
 const SearchBox = () => {
-  const [modalShow, setModalShow] = useState('none');
+  const [modalShow, setModalShow] = useState('flex');
   const modalRef = useRef();
   let nameInput;
 
@@ -21,20 +21,6 @@ const SearchBox = () => {
     return (nameInput = name);
   };
 
-  // const focusInput = () => {
-  //   const modalContainer = modalRef.current;
-  //   if (nameInput) {
-  //     console.log(nameInput);
-  //     setInputFocus(focusInput());
-  //     return modalContainer.querySelector(`.${nameInput}`).focus();
-  //   }
-  //   return console.log(false);
-  // };
-
-  const focusInput = () => {
-    modalRef.current && modalRef.current.querySelector(`.${nameInput}`).focus();
-  };
-
   useEffect(() => {
     hideModal();
   }, []);
@@ -44,7 +30,6 @@ const SearchBox = () => {
       <div className="search-form-container">
         <SearchForm
           showModal={showModal}
-          focusInput={focusInput}
           locationValue="Helsinki, Finland"
           inputClass="search-input"
         />
@@ -54,12 +39,10 @@ const SearchBox = () => {
         style={{ display: modalShow }}
         ref={modalRef}
       >
-        <div className="search-form-modal">
-          <SearchForm
-            inputClass="search-input-modal"
-            // locationInputModalRef={locationInputModalRef}
-            // guestsInputModalRef={guestsInputModalRef}
-          />
+        <div className="modal-wrap">
+          <div className="search-form-modal">
+            <SearchForm inputClass="search-input-modal" />
+          </div>
         </div>
       </div>
     </div>
