@@ -1,56 +1,53 @@
-import { useState, useRef } from 'react';
-
-const SearchForm = ({ locationValue, guestsValue, inputClass, showModal }) => {
-  // State of component
-  const [state, setstate] = useState({
-    locationValue: locationValue,
-    guestsValue: guestsValue,
-  });
-
-  // Ref
+import { useRef } from 'react';
+const SearchForm = ({ onlick }) => {
   const inputRef = useRef();
-
-  // Function to change value of input
-  const onValueChange = (value) => {
-    setstate({
-      locationValue: value,
-    });
+  const handleInputClick = () => {
+    inputRef.current.defaultValue = 'Helsinki, Finland';
+    onlick();
   };
-
-  // Function to handle showmodal function from parent element
-  const handleShowModal = (event) => {
-    if (typeof showModal === 'function') {
-      showModal(event.target.name);
-    }
-  };
-
   return (
-    <div>
+    <div className="search-form-modal">
       <form action="">
-        <input
-          ref={inputRef}
-          type="text"
-          title="location"
-          name="location"
-          id="location"
-          onClick={handleShowModal}
-          value={state.locationValue}
-          onChange={(e) => onValueChange(e.target.value)}
-          className={`${inputClass} location`}
-        />
-        <input
-          ref={inputRef}
-          type="text"
-          title="guests"
-          name="guests"
-          id="guests"
-          placeholder="Add guests"
-          onClick={handleShowModal}
-          className={`${inputClass} guests`}
-        />
-        <button type="submit" name="search" className={inputClass}>
-          <i class="fas"></i>
-        </button>
+        <div className="input-control-modal">
+          <label className="input-label-modal" htmlFor="location">
+            location
+          </label>
+          <input
+            ref={inputRef}
+            onClick={handleInputClick}
+            type="text"
+            title="location"
+            name="location"
+            id="location"
+            placeholder="Add location"
+            className="search-input-modal"
+          />
+        </div>
+        <div className="input-control-modal">
+          <label className="input-label-modal" htmlFor="guests">
+            guests
+          </label>
+          <input
+            type="text"
+            title="guests"
+            name="guests"
+            id="guests"
+            placeholder="Add guests"
+            className="search-input-modal"
+          />
+        </div>
+        <div className="input-control-modal">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            type="submit"
+            name="search"
+            className="search-input-modal"
+          >
+            <i class="fas"></i> Search
+          </button>
+        </div>
       </form>
     </div>
   );
