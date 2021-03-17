@@ -2,6 +2,8 @@ import { useRef, useEffect } from 'react';
 
 const Card = ({ stayData }) => {
   const titleRef = useRef();
+
+  // Function to check maximum text as the title
   const titleMaxText = () => {
     let max = parseInt(titleRef.current.offsetWidth / 11);
     let text = stayData.title;

@@ -1,10 +1,14 @@
 import { useRef } from 'react';
+
 const SearchForm = ({ onlick }) => {
   const inputRef = useRef();
+
+  // Function to handle click from parent component
   const handleInputClick = () => {
     inputRef.current.defaultValue = 'Helsinki, Finland';
     onlick();
   };
+
   return (
     <div className="search-form-modal">
       <form action="">

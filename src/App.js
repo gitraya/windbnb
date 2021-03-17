@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Header from './Header/Header';
-import Main from './Main/Main';
-import Footer from './Footer/Footer';
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
 
 function App() {
   const [stays, setStays] = useState(null);
