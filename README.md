@@ -1,4 +1,3 @@
-<h1 align="center">This page is still under development</h1>
 <h1 align="center">Windbnb</h1>
 
 <div align="center">
@@ -39,7 +38,6 @@
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 - [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
 - [React](https://reactjs.org/)
-- [Tailwind](https://tailwindcss.com/)
 
 ## Features
 

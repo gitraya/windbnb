@@ -1,30 +1,45 @@
-import { useRef } from 'react';
+import './Search.css';
 
-const SearchForm = ({ onlick }) => {
-  const inputRef = useRef();
+const SearchForm = ({
+  filteringStays,
+  filterValue,
+  changeFilterValue,
+  optionShow,
+}) => {
+  // Handle submitted form
+  const handleFormSubmit = (e) => {
+    let filter = [filterValue.location, parseInt(filterValue.maxGuests)];
+    filteringStays(e, filter);
+  };
 
-  // Function to handle click from parent component
-  const handleInputClick = () => {
-    inputRef.current.defaultValue = 'Helsinki, Finland';
-    onlick();
+  // Handle focused input
+  const handleFocused = (e) => {
+    optionShow(e.target.title);
+  };
+
+  // Text guest by number of guests
+  const guestValue = () => {
+    return filterValue.maxGuests > 1 ? 'guests' : 'guest';
   };
 
   return (
     <div className="search-form-modal">
-      <form action="">
+      <form onSubmit={handleFormSubmit}>
         <div className="input-control-modal">
           <label className="input-label-modal" htmlFor="location">
             location
           </label>
           <input
-            ref={inputRef}
-            onClick={handleInputClick}
+            value={filterValue.location}
             type="text"
             title="location"
             name="location"
             id="location"
             placeholder="Add location"
             className="search-input-modal"
+            onChange={changeFilterValue}
+            onFocus={handleFocused}
+            autoComplete="off"
           />
         </div>
         <div className="input-control-modal">
@@ -32,23 +47,19 @@ const SearchForm = ({ onlick }) => {
             guests
           </label>
           <input
+            value={`${filterValue.maxGuests} ${guestValue()}`}
             type="text"
             title="guests"
             name="guests"
             id="guests"
             placeholder="Add guests"
             className="search-input-modal"
+            onFocus={handleFocused}
+            autoComplete="off"
           />
         </div>
         <div className="input-control-modal">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            type="submit"
-            name="search"
-            className="search-input-modal"
-          >
+          <button type="submit" name="search" className="search-input-modal">
             <i class="fas"></i> Search
           </button>
         </div>

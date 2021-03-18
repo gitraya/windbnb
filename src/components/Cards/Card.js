@@ -1,7 +1,8 @@
 import { useRef, useEffect } from 'react';
+import './Cards.css';
 
 const Card = ({ stayData }) => {
-  const titleRef = useRef();
+  const titleRef = useRef(null);
 
   // Function to check maximum text as the title
   const titleMaxText = () => {
