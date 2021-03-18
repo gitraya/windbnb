@@ -24,6 +24,7 @@
 
 - [Overview](#overview)
 - [Built With](#built-with)
+- [What I learned](#what-i-learned)
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
@@ -38,6 +39,13 @@
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
 - [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
 - [React](https://reactjs.org/)
+
+## What I learned
+
+- I learned how to use the useEffect feature in React
+- I learned how to use Json format file in React as data
+- I learned how to use the callback function to interact between children and parents
+- I studied React features, namely useRef, forwardingRef, useState, and useEffect
 
 ## Features
 
